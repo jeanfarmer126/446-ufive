@@ -12,4 +12,6 @@ Points:
 10 (at least five bootstrap techniques)
   -navbar
   -collapsable
+  -modal
+  -table
 5 (cite on cs connect)

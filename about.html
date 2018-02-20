@@ -7,7 +7,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
+<style>
+  .mode {
+    background-color: grey;
+    margin: 40px;
+    color: white;
+    border-radius: 10px;
+  }
+
+  #container {
+    padding: 50px;
+    background-color: #FFF;
+  }
+
+</style>
   <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
@@ -22,5 +39,59 @@
         </li>
       </ul>
     </nav>
+
+    <button type="button" class="mode" data-toggle="modal" data-target="#myModal">
+      How to best utilize this page
+    </button>
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            Use this page to explore stats and learn about the teams
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1>Teams and their Websites</h1>
+    <div id="container"></div>
+
+      <script type="text/babel">
+        class Table extends React.Component {
+          render() {
+            var teams=["Villanova","St Mary's","Wisconsin","Virginia Tech","Virginia","UNCW","Florida","East Tenn St", "SMU", "USC", "Baylor", "New Mexico St", "South Carolina", "Marquette","Duke", "Troy", "Kansas", "UC Davis", "Miami",
+                       "Mich St", "Iowa St", "Nevada", "Purdue", "Vermont", "Creighton", "Rhode Island", "Oregon", "Iona","Michigan", "Oklahoma St", "Lousiville", "Jacksonville St"];
+            var renderData = [];
+            for(var i = 0; i < teams.length; i++){
+              var team= teams[i];
+              renderData.push(<tr key={i+team}><td>{teams[i]}</td><td>link here</td></tr>);
+            }
+            return(
+              <table className="table">
+                <thead className="thead-dark">
+                  <tr>
+                    <th>Name</th>
+                    <th>Website</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {renderData}
+                </tbody>
+              </table>
+            );
+          }
+        }
+        ReactDOM.render(
+          <div>
+            <Table/>
+          </div>,
+          document.querySelector("#container")
+        );
+      </script>
+
   </body>
 </html>
