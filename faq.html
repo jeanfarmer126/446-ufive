@@ -8,6 +8,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </head>
+<style>
+  body {
+    background-color: #e3e5e8;
+  }
+  a {
+    color: black
+  }
+  a:hover {
+    color: white
+  }
+  .card {
+    background-color: #c0c5ce;
+  }
+  .card-body {
+    background-color: #edeeef;
+  }
+
+</style>
   <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
@@ -22,6 +40,76 @@
         </li>
       </ul>
     </nav>
+    <div class="container-fluid">
+      <h1> Frequently Asked Questions </h1>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header">
+            <a class="card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              What is the purpose of the website?
+            </a>
+          </div>
+          <div id="collapseOne" class="collapse show">
+            <div class="card-body">
+              March Madness is a month of tension and stress. We are here to assist in the picking of your bracket
+              and learning what it is that is necessary to succeed.
+              <br>
+              While the probability is low that you'll get it exactly right, we'll help you do better than anybody
+              you're competing against.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              Question 2
+            </a>
+          </div>
+          <div id="collapseTwo" class="collapse">
+            <div class="card-body">
+              Answer to question 2
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              Question 3
+            </a>
+          </div>
+          <div id="collapseThree" class="collapse">
+            <div class="card-body">
+              Answer to question 3
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+              Question 4
+            </a>
+          </div>
+          <div id="collapseFour" class="collapse">
+            <div class="card-body">
+              Answer to question 4
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <a class="collapsed card-link" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+              Question 5
+            </a>
+          </div>
+          <div id="collapseFive" class="collapse">
+            <div class="card-body">
+              Answer to question 5
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </body>
 
 
