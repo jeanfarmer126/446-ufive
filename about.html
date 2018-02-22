@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -29,18 +31,33 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link active" href="index.html">
+            <span class="oi oi-home"></span>
+            Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="faq.html">FAQ</a>
+          <a class="nav-link" href="#">
+            <span class="oi oi-browser"></span>
+            About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="last_bracket.html">
+            <span class="oi oi-arrow-circle-left"></span>
+            Previous Bracket
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="faq.html">
+            <span class="oi oi-question-mark"></span>
+            FAQ
+          </a>
         </li>
       </ul>
     </nav>
 
-    <button type="button" class="mode" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="mode btn btn-info" data-toggle="modal" data-target="#myModal" >
       How to best utilize this page
     </button>
 
@@ -57,25 +74,78 @@
         </div>
       </div>
     </div>
-    <h1>Teams and their Websites</h1>
+    <h1 class="text-center">NCAA Men's Basketball Teams</h1>
     <div id="container"></div>
 
       <script type="text/babel">
         class Table extends React.Component {
           render() {
-            var teams=["Villanova","St Mary's","Wisconsin","Virginia Tech","Virginia","UNCW","Florida","East Tenn St", "SMU", "USC", "Baylor", "New Mexico St", "South Carolina", "Marquette","Duke", "Troy", "Kansas", "UC Davis", "Miami",
-                       "Mich St", "Iowa St", "Nevada", "Purdue", "Vermont", "Creighton", "Rhode Island", "Oregon", "Iona","Michigan", "Oklahoma St", "Lousiville", "Jacksonville St"];
+            var teams=[
+              "Villanova", "St Mary's", "Wisconsin", "Virginia Tech", "Virginia", "UNCW", "Florida",
+              "East Tenn St", "SMU", "USC", "Baylor", "New Mexico St", "South Carolina", "Marquette",
+              "Duke", "Troy", "Kansas", "UC Davis", "Miami", "Mich St", "Iowa St", "Nevada", "Purdue",
+              "Vermont", "Creighton", "Rhode Island", "Oregon", "Iona","Michigan", "Oklahoma St",
+              "Lousiville", "Jacksonville St"
+            ];
+            var team_pages = [
+              "http://www.espn.com/mens-college-basketball/team/_/id/222/villanova-wildcats",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2608/saint-mary's-gaels",
+              "http://www.espn.com/mens-college-basketball/team/_/id/275/wisconsin-badgers",
+              "http://www.espn.com/mens-college-basketball/team/_/id/259/virginia-tech-hokies",
+              "http://www.espn.com/mens-college-basketball/team/_/id/277/west-virginia-mountaineers",
+              "http://www.espn.com/mens-college-basketball/team/_/id/153/north-carolina-tar-heels",
+              "http://www.espn.com/mens-college-basketball/team/_/id/57/florida-gators",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2633/tennessee-volunteers",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2567/smu-mustangs",
+              "http://www.espn.com/mens-college-basketball/team/_/id/30/usc-trojans",
+              "http://www.espn.com/mens-college-basketball/team/_/id/239/baylor-bears",
+              "http://www.espn.com/mens-college-basketball/team/_/id/166/new-mexico-state-aggies",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2579/south-carolina-gamecocks",
+              "http://www.espn.com/mens-college-basketball/team/_/id/269/marquette-golden-eagles",
+              "http://www.espn.com/mens-college-basketball/team/_/id/150/duke-blue-devils",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2653/troy-trojans",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2305/kansas-jayhawks",
+              "http://www.espn.com/mens-college-basketball/team/_/id/302/uc-davis-aggies",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2390/miami-hurricanes",
+              "http://www.espn.com/mens-college-basketball/team/_/id/127/michigan-state-spartans",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2294/iowa-hawkeyes",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2440/nevada-wolf-pack",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2509/purdue-boilermakers",
+              "http://www.espn.com/mens-college-basketball/team/_/id/261/vermont-catamounts",
+              "http://www.espn.com/mens-college-basketball/team/_/id/156/creighton-bluejays",
+              "http://www.espn.com/mens-college-basketball/team/_/id/227/rhode-island-rams",
+              "http://www.espn.com/mens-college-basketball/team/_/id/2483/oregon-ducks",
+              "http://www.espn.com/mens-college-basketball/team/_/id/314/iona-gaels",
+              "http://www.espn.com/mens-college-basketball/team/_/id/130/michigan-wolverines",
+              "http://www.espn.com/mens-college-basketball/team/_/id/197/oklahoma-state-cowboys",
+              "http://www.espn.com/mens-college-basketball/team/_/id/97/louisville-cardinals",
+              "http://www.espn.com/mens-college-basketball/team/_/id/55/jacksonville-state-gamecocks"
+            ];
+            var twitters = [
+              "https://twitter.com/NovaMBB", "https://twitter.com/smcgaels", "https://twitter.com/BadgerMBB",
+              "https://twitter.com/HokiesMBB", "https://twitter.com/UVAMensHoops", "https://twitter.com/uncwmenshoops",
+              "https://twitter.com/GatorsMBK", "https://twitter.com/ETSU_MBB", "https://twitter.com/SMUBasketball",
+              "https://twitter.com/USC_Hoops", "https://twitter.com/BaylorMBB", "https://twitter.com/NMStateMBB",
+              "https://twitter.com/GamecockMBB", "https://twitter.com/MarquetteMBB", "https://twitter.com/DukeMBB",
+              "https://twitter.com/TroyMensHoops", "https://twitter.com/KUHoops", "https://twitter.com/UCDavisAggies",
+              "https://twitter.com/CanesHoops", "https://twitter.com/MSU_Basketball", "https://twitter.com/CycloneMBB",
+              "https://twitter.com/NevadaHoops", "https://twitter.com/BoilerBall", "https://twitter.com/UVMmbb",
+              "https://twitter.com/BluejayMBB", "https://twitter.com/RhodyMBB", "https://twitter.com/OregonMBB",
+              "https://twitter.com/IonaGaelsMBB", "https://twitter.com/umichbball", "https://twitter.com/OSUMBB",
+              "https://twitter.com/LouisvilleMBB", "https://twitter.com/JSU_MBB"
+            ];
             var renderData = [];
             for(var i = 0; i < teams.length; i++){
               var team= teams[i];
-              renderData.push(<tr key={i+team}><td>{teams[i]}</td><td>link here</td></tr>);
+              renderData.push(<tr key={i+team}><td>{teams[i]}</td><td><a href={team_pages[i]} target="_blank">{teams[i]} on ESPN.com</a></td><td><a href={twitters[i]} target="_blank"> <i class="fa fa-twitter-square fa-4x"></i></a></td></tr>);
             }
             return(
               <table className="table">
                 <thead className="thead-dark">
                   <tr>
-                    <th>Name</th>
+                    <th>School</th>
                     <th>Website</th>
+                    <th>Twitter</th>
                   </tr>
                 </thead>
                 <tbody>
