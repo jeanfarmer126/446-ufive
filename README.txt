@@ -19,3 +19,10 @@ Points:
    - img-fluid
 5. 5 (cite on cs connect)
    - done
+
+
+Team Evaluation
+
+	Jean Farmer: 15
+	Garrett Daly: 15
+	Satvik Saini: 15
